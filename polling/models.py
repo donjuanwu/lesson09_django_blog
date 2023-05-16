@@ -7,6 +7,12 @@ Purpose:
 
 Date        Developer       Activities
 5/15/23     Don D           Add model
+                            Notes:
+                                 This new model represented a new table that I wanted stored in my database,
+                                 so I had to migrate this new table into the existing database:
+                                 1. python manage.py makemigrations
+                                 2.
+
 """
 
 from django.db import models

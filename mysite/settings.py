@@ -1,5 +1,4 @@
 """
-
 Assignment: 06
 Date: 5/15/23
 File name: settings.py
@@ -19,7 +18,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 Date        Developer       Activities
 5/15/23     Don D           Add location of base.html into TEMPLATES
-
+                            Add blogging app to INSTALLED_APPS
 """
 
 from pathlib import Path
@@ -36,7 +35,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wmmxoepj4rcbp5xip&154mvtjt5!jn2sr!e&(umj3@4tfk4c=r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # default = True
 
 ALLOWED_HOSTS = []
 
@@ -52,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polling',
+    'blogging',
 ]
 
 MIDDLEWARE = [

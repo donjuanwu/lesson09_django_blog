@@ -1,8 +1,7 @@
 """
-
 Assignment: 06
 Date: 5/15/23
-File name: urls.py
+File name: mysite/urls.py
 Purpose:
 - file which holds top-level URL configuration for your project, more soon
 
@@ -21,10 +20,16 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+
+
+Date        Developer       Activities
+5/15/23     Don D            Update the routing for polling/templates/polling/list.html & ./././detail.html
+                             path('polling/', include('polling.urls')),
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('polling/', include('polling.urls')),
+    path('admin/', admin.site.urls), # This line routes all of our requests under the admin path to Django's admin module
 ]
