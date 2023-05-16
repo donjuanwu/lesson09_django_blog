@@ -1,0 +1,25 @@
+<!--
+Assignment: 06
+Date: 5/15/23
+File name: base.html
+Purpose:
+- entire project template for blogging and polling
+- mysite/templates/base.html
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Django Blog</title>
+    </head>
+    <body>
+        <div id="container">
+            <div id="content">
+                {% block content %}
+                [content will go here]
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
