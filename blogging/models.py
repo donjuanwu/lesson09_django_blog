@@ -22,3 +22,21 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Category(models.Model):
+    """
+    definition: Category table
+    """
+    name = models.TextField(max_length=128)
+    description = models.TextField(blank=True)
+    posts = models.ManyToManyField(Post, blank=True, related_name='categories') # many posts to a table or many
+    # tables to a post
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Categories' # update category to categories another way to rename category
+
+

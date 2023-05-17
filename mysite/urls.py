@@ -30,6 +30,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('', include('blogging.urls')), # general root will pass to blogging.urls
     path('polling/', include('polling.urls')),
     path('admin/', admin.site.urls), # This line routes all of our requests under the admin path to Django's admin module
 ]
