@@ -26,7 +26,7 @@ class Post(models.Model):
 
 class Category(models.Model):
     """
-    definition: Category table
+    definition: categorizing post
     """
     name = models.TextField(max_length=128)
     description = models.TextField(blank=True)
