@@ -1,15 +1,20 @@
 """
-
-Date: 5/16/23
+Assignment: 07 Activity
+Date: 5/18/23
 File name: blogging/tests.py
 Test usage:
 > python manage.py test blogging
+Date        Developer       Activities
+5/18/23     Don D.          Update tests.py
+                            Need to add a fixture into blogging/fixtures
+                            - Luis sent out this file
 
 """
 
 from blogging.models import Post, Category
 from django.test import TestCase
 from django.contrib.auth.models import User
+from django.utils.timezone import utc
 import datetime
 
 
