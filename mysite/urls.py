@@ -1,6 +1,6 @@
 """
-Assignment: 06
-Date: 5/15/23
+Assignment: 07
+Date: 5/20/23
 File name: mysite/urls.py
 Purpose:
 - file which holds top-level URL configuration for your project, more soon
@@ -22,6 +22,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 
 
+Notes:
+https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=17606304
+  In the Starting Django tutorial, you learned about Django urlconfs. We used our project urlconf to hook the Django admin into our project
+  and we want to do the same thing for our new app. In general, an app that serves any sort of views should contain its own urlconf.
+  The project urlconf should mainly include these where possible.
+
+
 Date        Developer       Activities
 5/15/23     Don D            Update the routing for polling/templates/polling/list.html & ./././detail.html
                              path('polling/', include('polling.urls')),
@@ -29,8 +36,14 @@ Date        Developer       Activities
 from django.contrib import admin
 from django.urls import path, include
 
+"""
+- https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=17606304
+In order for our new urls to load, we’ll need to include them in our project urlconf. 
+Open urls.py from the mysite project package and add this:
+"""
 urlpatterns = [
-    path('', include('blogging.urls')), # general root will pass to blogging.urls
-    path('polling/', include('polling.urls')),
-    path('admin/', admin.site.urls), # This line routes all of our requests under the admin path to Django's admin module
+    path('', include('blogging.urls')),  # blogging/urls
+    path('polling/', include('polling.urls')),  # polling/urls
+    path('admin/', admin.site.urls),  # This line routes all of our requests under the admin path to Django's admin
+    # module
 ]

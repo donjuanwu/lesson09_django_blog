@@ -25,6 +25,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
+        """add this method to pass blogging/tests.py"""
         return self.title
 
 
@@ -46,6 +47,7 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'Categories' # update category to categories another way to rename category
+        """update category to categorize another way to rename category"""
+        verbose_name_plural = 'Categories'
 
 

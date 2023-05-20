@@ -13,4 +13,4 @@ from blogging.models import Post, Category
 
 # Register your models here.
 admin.site.register(Post)
-admin.site.register(Category) # register bloggin/model's class Category
+admin.site.register(Category)  # register blogging/model's class Category

@@ -1,11 +1,43 @@
+<!--
+Assignment: 07 activity
+Date: 5/20/23
+File name: blogging/templates/blogging/list.html
+Purpose:
+- display template that will be used by blogging/views
+
+Notes:
+- https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=17606304
+Before we move on, a quick word about Django templates.
+Django templates contain the static parts of the desired HTML output as well as some special syntax describing
+how dynamic content will be inserted. Django templates do not allow any python expressions.
+
+Reference:
+Django Templates
+- https://docs.djangoproject.com/en/2.1/topics/templates/
+
+-->
+
+
 {% extends "base.html" %} {% block content %}
     <h1>Recent Posts</h1>
+    {% comment %} here is where the query happens {% endcomment %}
     {% for post in posts %}
         <div class="post">
-            <h2>{{ post }} </h2>
-            <p class="byline">
-                Posted by {{ post.author.username }} &mdash; {{ post.published_date }}
-            </p>
+        <h2>
+            {{ post }}
+        </h2>
+        </div>
+        <p class="byline">
+            Posted by {{ post.author.username }} &mdash; {{ post.published_date }}
+        </p>
+        <div class="post-body">
+            {{ post.text }}
+        </div>
+        <ul class="categories">
+            {% for category in post.categories.all %}
+                <li> {{ category }}</li>
+                {% endfor %}
+        </ul>
         </div>
 
     {% endfor %}

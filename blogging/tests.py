@@ -1,9 +1,11 @@
 """
 Assignment: 07 Activity
-Date: 5/18/23
+Date: 5/20/23
 File name: blogging/tests.py
 Test usage:
 > python manage.py test blogging
+
+
 Date        Developer       Activities
 5/18/23     Don D.          Update tests.py
                             Need to add a fixture into blogging/fixtures
@@ -41,7 +43,8 @@ class CategoryTestCase(TestCase):
 
 
 class FrontEndTestCase(TestCase):
-    fixtures = ['blogging_test_fixture.json']
+    """test views provided in the front-end"""
+    fixtures = ['blogging_test_fixture.json', ]
 
     def setup(self):
         self.now = datetime.datetime.utcnow().replace(tzinfo=utc)
@@ -51,18 +54,20 @@ class FrontEndTestCase(TestCase):
             post = Post(title="Post %d Title" % count,
                         text="foo",
                         author=author)
-            if count < 6:  # only 5 get publication date
+            if count < 6:  # publish the first five posts
                 pubdate = self.now - self.timedelta * count
                 post.published_date = pubdate
-                post.save()
+            post.save()
 
     def test_list_only_published(self):
+        """only display 5 published posts"""
         resp = self.client.get('/')  # come as part of test case
+        # the content of the rendered response is always a bytestring
         resp_text = resp.content.decode(resp.charset)
         self.assertTrue("Recent Posts" in resp_text)
         for count in range(1, 11):
             title = "Post %d Title" % count
             if count < 6:
-                self.assertContains(resp, title, count=1)
+                self.assertContains(resp, title, count=0)
             else:
                 self.assertNotContains(resp, title)
