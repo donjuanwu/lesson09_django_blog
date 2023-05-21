@@ -1,6 +1,6 @@
 """
-Assignment: 06
-Date: 5/15/23
+Assignment: Lesson 07 Activity
+Date: 5/20/23
 File name: settings.py
 Purpose:
 - file which holds configuration for your project, more soon
@@ -19,6 +19,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 Date        Developer       Activities
 5/15/23     Don D           Add location of base.html into TEMPLATES
                             Add blogging app to INSTALLED_APPS
+5/20/23     Don D.          Add LOGIN_URL = '/login/'
+                            LOGIN_REDIRECT_URL ='/'
 """
 
 from pathlib import Path
@@ -26,7 +28,8 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/

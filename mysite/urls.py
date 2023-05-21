@@ -33,6 +33,7 @@ Date        Developer       Activities
 5/15/23     Don D            Update the routing for polling/templates/polling/list.html & ./././detail.html
                              path('polling/', include('polling.urls')),
 """
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import admin
 from django.urls import path, include
 
@@ -46,4 +47,6 @@ urlpatterns = [
     path('polling/', include('polling.urls')),  # polling/urls
     path('admin/', admin.site.urls),  # This line routes all of our requests under the admin path to Django's admin
     # module
+    path('login/', LoginView.as_view(template_name='login.html'), name="login"),
+    path('logout/', LogoutView.as_view(next_page='/'), name="logout"),
 ]
