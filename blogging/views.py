@@ -54,5 +54,5 @@ def detail_view(request, post_id):
         post = published.get(pk=post_id)
     except Post.DoesNotExist:
         raise Http404
-    context = {'posts': post}
+    context = {'post': post}
     return render(request, 'blogging/detail.html', context)
