@@ -13,7 +13,7 @@ https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=176
 """
 
 from django.urls import path
-from blogging.views import stub_view, list_view, detail_view
+from blogging.views import list_view, detail_view
 
 # url pattern
 

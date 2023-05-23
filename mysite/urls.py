@@ -1,5 +1,5 @@
 """
-Assignment: 07
+Assignment: Lesson 07 Assignment
 Date: 5/20/23
 File name: mysite/urls.py
 Purpose:
@@ -32,6 +32,8 @@ https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=176
 Date        Developer       Activities
 5/15/23     Don D            Update the routing for polling/templates/polling/list.html & ./././detail.html
                              path('polling/', include('polling.urls')),
+
+
 """
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import admin
@@ -41,6 +43,14 @@ from django.urls import path, include
 - https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=17606304
 In order for our new urls to load, we’ll need to include them in our project urlconf. 
 Open urls.py from the mysite project package and add this:
+
+Hooking AdminSite instances into your URLconf
+- https://docs.djangoproject.com/en/2.1/ref/contrib/admin/#hooking-adminsite-to-urlconf
+Example: 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+
 """
 urlpatterns = [
     path('', include('blogging.urls')),  # blogging/urls

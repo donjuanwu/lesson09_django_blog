@@ -1,5 +1,5 @@
 """
-Assignment: Lesson 07 Activity
+Assignment: Lesson 07 Assignment
 Date: 5/20/23
 File name: settings.py
 Purpose:
@@ -46,6 +46,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 # add polling
+# add below entries in order NOT to use Django default project template
+# - https://docs.djangoproject.com/en/2.1/ref/contrib/admin/
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,6 +59,10 @@ INSTALLED_APPS = [
     'blogging',
 ]
 
+# add below entries to customized MIDDLEWARE
+# django.contrib.auth.middleware.AuthenticationMiddleware
+# django.contrib.messages.middleware.MessageMiddleware
+# - https://docs.djangoproject.com/en/2.1/ref/contrib/admin/
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -66,11 +72,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+# Hook the admin's URLs into yoru URLconf
+# -
 ROOT_URLCONF = 'mysite.urls'
 
 
 # add base.html template here
+# add below entries in order NOT to use Django default project template
+# - https://docs.djangoproject.com/en/2.1/ref/contrib/admin/
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
