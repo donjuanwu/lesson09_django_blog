@@ -11,7 +11,8 @@ Location:
 {% extends "base.html" %}
 {% block content %}
 <h1>Polls</h1>
-{% for poll in polls %}
+{#{% for poll in polls %}#}
+    {% for poll in polls_list %}
     <div class="poll">
         <h2>
             <a href="{% url 'poll_detail' poll.pk %}"> {{ poll.title }}</a>

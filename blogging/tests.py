@@ -46,7 +46,7 @@ class FrontEndTestCase(TestCase):
     """test views provided in the front-end"""
     fixtures = ['blogging_test_fixture.json', ]
 
-    def setup(self):
+    def setUp(self):
         self.now = datetime.datetime.utcnow().replace(tzinfo=utc)
         self.timedelta = datetime.timedelta(15)
         author = User.objects.get(pk=1)
@@ -68,7 +68,7 @@ class FrontEndTestCase(TestCase):
         for count in range(1, 11):
             title = "Post %d Title" % count
             if count < 6:
-                self.assertContains(resp, title, count=0)
+                self.assertContains(resp, title, count=1)
             else:
                 self.assertNotContains(resp, title)
 
