@@ -1,6 +1,6 @@
 """
-Assignment: 06
-Date: 5/15/23
+Assignment: Lesson 08 Activity Class-Based View
+Date: 5/26/23
 File name: polling/models.py
 Purpose:
 - file which is where we will write our models for the polling app
@@ -12,7 +12,7 @@ Date        Developer       Activities
                                  so I had to migrate this new table into the existing database:
                                  1. python manage.py makemigrations
                                  2.
-
+5/26/23     Don D.          Started lesson 08 class-based view
 """
 
 from django.db import models
