@@ -13,6 +13,9 @@
 - `python manage.py migrate`
 7. Create superuser
 - `python manage.py createsuperuser`
+   username: doncd
+   doncdang@hotmai.com
+   pw: leyla2004
 8. Create an app calling polling
 - `python manage.py startapp polling`
 9. Start a Django shell
