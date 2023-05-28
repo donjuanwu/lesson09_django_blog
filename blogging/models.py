@@ -1,6 +1,6 @@
 """
-Assignment: 07 Activity
-Date: 5/15/23
+Assignment: 08 class-based view
+Date: 5/28/23
 File name: blogging/models.py
 Purpose:
 - file which holds configuration for your project, more soon
@@ -25,7 +25,12 @@ class Post(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
-        """add this method to pass blogging/tests.py"""
+        """
+        - https://www.digitalocean.com/community/tutorials/python-str-repr-functions
+        What is the __str __( self method in Python?
+        The __str__() method returns a human-readable, or informal, string representation of an object.
+        This method is called by the built-in print() , str() , and format() functions.
+        """
         return self.title
 
 
@@ -42,12 +47,23 @@ class Category(models.Model):
 
     def __str__(self):
         """
-        need to add this method in order to pass blogging/tests.py
+        - https://www.digitalocean.com/community/tutorials/python-str-repr-functions
+        What is the __str __( self method in Python?
+        The __str__() method returns a human-readable, or informal, string representation of an object.
+        This method is called by the built-in print() , str() , and format() functions.
         """
         return self.name
 
     class Meta:
-        """update category to categorize another way to rename category"""
+        """
+        Meta class in Django Model - https://www.programmingfunda.com/meta-class-in-django-model/ 1. is also a python
+        class that defines inside the Django model. It's the way to change the behavior of Django tables: like table
+        name, field order, field constraints, indexes etc...
+        Notes: - it's not mandatory to add meta class in Django
+        models.
+        - It all depends on you.
+
+        """
         verbose_name_plural = 'Categories'
 
 

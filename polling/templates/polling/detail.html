@@ -1,22 +1,25 @@
 <!--
-Assignment: 06
-Date: 5/15/23
-File name: details.html
+Assignment: Lesson 08 Activity Class-Based View
+Date: 5/26/23
+File name: polling/templates/polling/detail.html
 Purpose:
 - polling app template
 
-Location:
-- polling/templates/polling/detail.html
+Notes:
+> object comes from views.PollDetailView.post > context = {"object": poll}
+
+Date        Developer       Activities
+5/26/23     Don D.          update list.html to use class-based view
 -->
 
 {% extends "base.html" %}
 {% block content %}
-<h1>{{ poll.title }}</h1>
+<h1>{{ object.title }}</h1>
 <div class="poll-body">
-    {{ poll.text }}
+    {{ object.text }}
 </div>
 <div class="poll-score">
-    Current score: {{ poll.score }}
+    Current score: {{ object.score }}
 </div>
 <div class="poll-vote">
     <form method="POST">
