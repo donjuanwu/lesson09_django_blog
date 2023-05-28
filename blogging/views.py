@@ -20,43 +20,38 @@ https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=176
 Date        Developer       Activities
 5/28/23     Don D.          Remove def stub_view()
 5/28/23     Don D.          import class-based views: ListView
+                            use queryset to specify list of objects
+                            - https://docs.djangoproject.com/en/2.1/topics/class-based-views/generic-display/#viewing-subsets-of-objects
 """
-from django.template import loader
-from blogging.models import Post, Category
-from django.shortcuts import HttpResponse, Http404
-from django.shortcuts import render
 
+from django.shortcuts import Http404
+from blogging.models import Post
 from django.views.generic import ListView
 from django.views.generic import DetailView
 
 
 # Create your class-based views here.
 class PostListView(ListView):
-    model = Post
+    """
+    Assignment 08 Descriptions:
+    - https://canvas.uw.edu/courses/1616579/assignments/8072498?module_item_id=17606313
+    front page should continue to display only published posts and it should continue to display posts in reverse-chronological order.
+    To accomplish this, you'll be providing a `queryset` class attribute in your list view instead of a `model` class attribute.
+    """
+    queryset = Post.objects.exclude(published_date__exact=None).order_by('-published_date')
     template_name = 'blogging/list.html'
 
 
 class PostListViewDetail(DetailView):
-    model = Post
-    template_name = 'blogging/detail.html'
+    """
+    exclude all post with no published date
+    """
+    try:
+        queryset = Post.objects.exclude(published_date__exact=None)
+        template_name = 'blogging/detail.html'
+    except Post.DoesNotExist:
+        raise Http404
 
-    # def get_queryset(self):
+    # model = Post
+    # template_name = 'blogging/detail.html'
 
-
-#
-# def list_view(request):
-#     published = Post.objects.exclude(published_date__exact=None)  # create an instance from the blogging/models's Post
-#     posts = published.order_by('-published_date')
-#     template = loader.get_template('blogging/list.html') # get a template from the loader
-#     context = {'posts': posts} # build a context
-#     return render(request, 'blogging/list.html', context)
-#
-#
-# def detail_view(request, post_id):
-#     published = Post.objects.exclude(published_date__exact=None)
-#     try:
-#         post = published.get(pk=post_id)
-#     except Post.DoesNotExist:
-#         raise Http404
-#     context = {'post': post}
-#     return render(request, 'blogging/detail.html', context)

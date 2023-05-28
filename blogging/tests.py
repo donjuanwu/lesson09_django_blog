@@ -85,6 +85,12 @@ class FrontEndTestCase(TestCase):
             resp = self.client.get('/posts/%d/' % post.pk)
             if count < 6:
                 self.assertEqual(resp.status_code, 200)
+                """
+                - https://docs.djangoproject.com/en/dev/topics/testing/tools/#django.test.SimpleTestCase.assertContains
+                Asserts that a response produced the given status_code and that text appears in its content. 
+                If count is provided, text must occur exactly count times in the response.
+                SimpleTestCase.assertContains(response, text, count=None, status_code=200, msg_prefix='', html=False)
+                """
                 self.assertContains(resp, title)
             else:
                 self.assertEqual(resp.status_code, 404)

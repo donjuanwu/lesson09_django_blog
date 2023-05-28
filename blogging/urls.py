@@ -21,6 +21,6 @@ from django.urls import path
 from blogging.views import PostListView, PostListViewDetail
 
 urlpatterns = [
-    path('', PostListView.as_view(), name="blog_index"),  # url for post list
+    path('', PostListView.as_view(), name="blog_index"),  # post front pate
     path('posts/<int:pk>/', PostListViewDetail.as_view(), name="blog_detail"),  # kwargs
 ]
