@@ -14,7 +14,8 @@ Date        Developer       Activities
 from django.urls import path
 from polling.views import PollListView, PollDetailView
 
+# hook views into your urls:
 urlpatterns = [
-    path('', PollListView.as_view(), name="poll_index"),
+    path('', PollListView.as_view(), name="poll_index"), # PollListView come from a class PollListView in views
     path('polls/<int:pk>/', PollDetailView.as_view(), name="poll_detail"),
 ]

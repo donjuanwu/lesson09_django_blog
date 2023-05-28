@@ -67,6 +67,7 @@ class PollListView(ListView):
     inheritance ListView class
     class-based view
     """
+    # specifying model = Poll is a shorthand for saying queryset = Poll.objects.all()
     model = Poll
     template_name = 'polling/list.html'
 
@@ -75,6 +76,7 @@ class PollDetailView(DetailView):
     """
     class-based view
     """
+    # specifying model = Poll is a shorthand for saying queryset = Poll.objects.all()
     model = Poll
     template_name = 'polling/detail.html'
 
