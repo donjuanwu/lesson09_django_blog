@@ -3,8 +3,8 @@ import os
 import sys
 
 """
-Assignment: 07
-Date: 5/15/23
+Assignment: lesson09_CI/CD
+Date: 5/31/23
 File name: manage.py
 Purpose:
 - a management control script
@@ -25,9 +25,18 @@ to `django-admin`.
 The environment variable DJANGO_SETTINGS_MODULE is how the manage.py script knows about your project’s environment. 
 Specifically, it knows that our project is named mysite. This is why you shouldn’t rename the mysite project package.
 
+Notes:
+After forking project must do the following
+1. create database
+> from terminal: python manage.py migrate
+2. create super user
+> from terminal: python manage.py createsuperuser
+                 doncd
+                 leyla2004
+
+
 Date        Developer           Activities
-5/18/23     Don D.              Run python manage.py runserver
-                                Unable to log into 127.0.0.1:8000/admin
+5/31/23     Don D.              Clone lesson08 assignment main branch and called it lesson09_django_blog
                                 Need to recreate superuser on pycharm terminal
                                 > python manage.py createsuperuser
                                 name: doncd
