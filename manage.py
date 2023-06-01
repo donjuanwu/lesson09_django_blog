@@ -33,6 +33,12 @@ After forking project must do the following
 > from terminal: python manage.py createsuperuser
                  doncd
                  leyla2004
+                 
+black usage:
+> pip install black
+run autoformatter on blogging mysite and polling
+> black --check blogging mysite polling
+
 
 
 Date        Developer           Activities

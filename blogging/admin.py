@@ -58,19 +58,23 @@ class PostInline(admin.TabularInline):
      1. TabularInline
      2. StackedInLine
     """
+
     model = Category.posts.through
 
 
 class PostAdmin(admin.ModelAdmin):
     """
-     InlineModelAdmin objects
-     - https://docs.djangoproject.com/en/2.1/ref/contrib/admin/#inlinemodeladmin-objects
-     The admin interface has the ability to edit models on the same pae as a parent model.
-     These are called inlines.
-     You can edit the books authored by an author on the author page.
-     You add inlines to a model by specifying them in a ModelAdmin.inlines
+    InlineModelAdmin objects
+    - https://docs.djangoproject.com/en/2.1/ref/contrib/admin/#inlinemodeladmin-objects
+    The admin interface has the ability to edit models on the same pae as a parent model.
+    These are called inlines.
+    You can edit the books authored by an author on the author page.
+    You add inlines to a model by specifying them in a ModelAdmin.inlines
     """
-    inlines = [PostInline, ]
+
+    inlines = [
+        PostInline,
+    ]
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -83,8 +87,13 @@ class CategoryAdmin(admin.ModelAdmin):
     - https://docs.djangoproject.com/en/2.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.exclude
     This attribute, if given, should be a list of field names to exclude from the form
     """
-    list_display = ('name', 'description')  # in category display name and description fields
-    exclude = ['posts']  # list out the fields to exclude from the form
+
+    list_display = (
+        "name",
+        "description",
+    )  # in category display name and description fields
+    exclude = ["posts"]  # list out the fields to exclude from the form
+
 
 # Register your models here. These models will show up in the Django admin/url
 admin.site.register(Post, PostAdmin)
