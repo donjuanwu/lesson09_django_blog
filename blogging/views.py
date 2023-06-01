@@ -51,7 +51,6 @@ class PostListViewDetail(DetailView):
         template_name = 'blogging/detail.html'
     except Post.DoesNotExist:
         raise Http404
-
     # model = Post
     # template_name = 'blogging/detail.html'
 
