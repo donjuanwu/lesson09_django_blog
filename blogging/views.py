@@ -38,19 +38,22 @@ class PostListView(ListView):
     front page should continue to display only published posts and it should continue to display posts in reverse-chronological order.
     To accomplish this, you'll be providing a `queryset` class attribute in your list view instead of a `model` class attribute.
     """
-    queryset = Post.objects.exclude(published_date__exact=None).order_by('-published_date')
-    template_name = 'blogging/list.html'
+
+    queryset = Post.objects.exclude(published_date__exact=None).order_by(
+        "-published_date"
+    )
+    template_name = "blogging/list.html"
 
 
 class PostListViewDetail(DetailView):
     """
     exclude all post with no published date
     """
+
     try:
         queryset = Post.objects.exclude(published_date__exact=None)
-        template_name = 'blogging/detail.html'
+        template_name = "blogging/detail.html"
     except Post.DoesNotExist:
         raise Http404
     # model = Post
     # template_name = 'blogging/detail.html'
-

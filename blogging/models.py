@@ -39,10 +39,13 @@ class Category(models.Model):
     URL: https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=17606304
     definition: categorizing post
     """
+
     # attributes of class Category
     name = models.CharField(max_length=128)
     description = models.TextField(blank=True)
-    posts = models.ManyToManyField(Post, blank=True, related_name='categories') # many posts to a table or many
+    posts = models.ManyToManyField(
+        Post, blank=True, related_name="categories"
+    )  # many posts to a table or many
     # tables to a post
 
     def __str__(self):
@@ -64,6 +67,5 @@ class Category(models.Model):
         - It all depends on you.
 
         """
-        verbose_name_plural = 'Categories'
 
-
+        verbose_name_plural = "Categories"

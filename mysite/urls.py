@@ -53,10 +53,12 @@ urlpatterns = [
 
 """
 urlpatterns = [
-    path('', include('blogging.urls')),  # blogging/urls
-    path('polling/', include('polling.urls')),  # polling/urls
-    path('admin/', admin.site.urls),  # This line routes all of our requests under the admin path to Django's admin
+    path("", include("blogging.urls")),  # blogging/urls
+    path("polling/", include("polling.urls")),  # polling/urls
+    path(
+        "admin/", admin.site.urls
+    ),  # This line routes all of our requests under the admin path to Django's admin
     # module
-    path('login/', LoginView.as_view(template_name='login.html'), name="login"),
-    path('logout/', LogoutView.as_view(next_page='/'), name="logout"),
+    path("login/", LoginView.as_view(template_name="login.html"), name="login"),
+    path("logout/", LogoutView.as_view(next_page="/"), name="logout"),
 ]
