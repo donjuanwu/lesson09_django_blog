@@ -1,6 +1,6 @@
 """
-Assignment: 07 Activity
-Date: 5/20/23
+Assignment: 08 class-based view
+Date: 5/28/23
 File name: blogging/urls.py
 
 Notes:
@@ -10,14 +10,17 @@ https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=176
 - In general, an app that serves any sort of views should contain its own urlconf.
   The project urlconf should mainly include these where possible.
 
+Date        Developer       Activities
+5/28/23     Don D.          Refactor urls.py
+                            - import Django generic views
+                            - refactor urlpatterns to match Django generic url
+
 """
 
 from django.urls import path
-from blogging.views import list_view, detail_view
-
-# url pattern
+from blogging.views import PostListView, PostListViewDetail
 
 urlpatterns = [
-    path('', list_view, name="blog_index"),  # url for list page
-    path('posts/<int:post_id>/', detail_view, name="blog_detail"),  # kwargs
+    path('', PostListView.as_view(), name="blog_index"),  # post front pate
+    path('posts/<int:pk>/', PostListViewDetail.as_view(), name="blog_detail"),  # kwargs
 ]

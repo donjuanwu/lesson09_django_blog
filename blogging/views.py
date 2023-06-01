@@ -11,54 +11,46 @@ Resources:
 Introduction to class-based views
 - https://docs.djangoproject.com/en/2.1/topics/class-based-views/intro/
 
-
-
-
 Notes:
 https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=17606304
   In the Starting Django tutorial, you learned about Django urlconfs. We used our project urlconf to hook the Django admin into our project
   and we want to do the same thing for our new app. In general, an app that serves any sort of views should contain its own urlconf.
   The project urlconf should mainly include these where possible.
 
-
+Date        Developer       Activities
+5/28/23     Don D.          Remove def stub_view()
+5/28/23     Don D.          import class-based views: ListView
+                            use queryset to specify list of objects
+                            - https://docs.djangoproject.com/en/2.1/topics/class-based-views/generic-display/#viewing-subsets-of-objects
 """
-from django.template import loader
-from blogging.models import Post, Category
-from django.shortcuts import HttpResponse, Http404
-from django.shortcuts import render
+
+from django.shortcuts import Http404
+from blogging.models import Post
+from django.views.generic import ListView
+from django.views.generic import DetailView
 
 
-# Create your views here.
-def stub_view(request, *args, **kwargs):
+# Create your class-based views here.
+class PostListView(ListView):
     """
-    a view:
-    - code that builds a page that you can see
-    - can be defined as a callable that takes a request and returns a response.
-    we'll use the 'stub view' we've created so we can concentrate on the url routing
+    Assignment 08 Descriptions:
+    - https://canvas.uw.edu/courses/1616579/assignments/8072498?module_item_id=17606313
+    front page should continue to display only published posts and it should continue to display posts in reverse-chronological order.
+    To accomplish this, you'll be providing a `queryset` class attribute in your list view instead of a `model` class attribute.
     """
-    body = "Stub View\n\n"
-    if args:
-        body += "Args: \n"
-        body += "\n".join(["\t%s" % a for a in args])
-    if kwargs:
-        body += "Kwargs: \n"
-        body += "\n".join(["\t%s: %s" % a for a in kwargs.items()])
-    return HttpResponse(body, content_type="text/plain")  # return body with mime type
+    queryset = Post.objects.exclude(published_date__exact=None).order_by('-published_date')
+    template_name = 'blogging/list.html'
 
 
-def list_view(request):
-    published = Post.objects.exclude(published_date__exact=None)  # create an instance from the blogging/models's Post
-    posts = published.order_by('-published_date')
-    template = loader.get_template('blogging/list.html') # get a template from the loader
-    context = {'posts': posts} # build a context
-    return render(request, 'blogging/list.html', context)
-
-
-def detail_view(request, post_id):
-    published = Post.objects.exclude(published_date__exact=None)
+class PostListViewDetail(DetailView):
+    """
+    exclude all post with no published date
+    """
     try:
-        post = published.get(pk=post_id)
+        queryset = Post.objects.exclude(published_date__exact=None)
+        template_name = 'blogging/detail.html'
     except Post.DoesNotExist:
         raise Http404
-    context = {'post': post}
-    return render(request, 'blogging/detail.html', context)
+    # model = Post
+    # template_name = 'blogging/detail.html'
+

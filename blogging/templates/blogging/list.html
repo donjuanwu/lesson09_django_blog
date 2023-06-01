@@ -15,12 +15,15 @@ Reference:
 Django Templates
 - https://docs.djangoproject.com/en/2.1/topics/templates/
 
+Date        Developer       Activities
+5/28/23     Don D.          Update post 'for post in post_list' from for post in posts
+
 -->
 
 
 {% extends "base.html" %} {% block content %}
     <h1>Recent Posts</h1>
-    {% for post in posts %}
+    {% for post in post_list %}
         <div class="post">
         <h2>
             <a href="{% url 'blog_detail' post.pk %}">{{ post }}</a>
