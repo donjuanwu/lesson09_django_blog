@@ -29,14 +29,19 @@ Create environment variables in heroku
 > heroku addons:create heroku-postgresql:hobby-dev
 5. View environment variables
 > heroku config
-6. Create heroku superuser
+6. Push to heroku
+> git push heroku main
+7. Create Django superuser
 > heroku run python manage.py createsuperuser
-7. Open heroku
+8. Open heroku
 > heroku open
 
 git add requirements.txt
 git commit -m "Get ready for heroku deployment."
 git push origin continuous-deployment
+
+app name: lesson09continuous-deployment
+heroku git url: https://git.heroku.com/lesson09continuous-deployment.git
 
 """
 
