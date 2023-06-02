@@ -18,11 +18,21 @@ git add Procfile
 git commit -m "Getting ready for heroku."
 git push origin continuous-deployment
 
-create variables in heroku
-heroku config:set DJANGO_SETTINGS_MODULE=mysite.heroku
-heroku config:set SECRET_KEY=NnUdYr28vxncCAuYyppNp33H
-heroku addons:create heroku-postgresql:hobby-dev
-heroku config
+Create environment variables in heroku
+1. Create heroku
+> heroku create
+2. Set environment variable to use mysite.heroku
+> heroku config:set DJANGO_SETTINGS_MODULE=mysite.heroku
+3. Set secret password
+> heroku config:set SECRET_KEY=NnUdYr28vxncCAuYyppNp33H
+4. Create database
+> heroku addons:create heroku-postgresql:hobby-dev
+5. View environment variables
+> heroku config
+6. Create heroku superuser
+> heroku run python manage.py createsuperuser
+7. Open heroku
+> heroku open
 
 git add requirements.txt
 git commit -m "Get ready for heroku deployment."
