@@ -43,6 +43,8 @@ git push origin continuous-deployment
 app name: lesson09continuous-deployment
 heroku git url: https://git.heroku.com/lesson09continuous-deployment.git
 
+git remote rm heroku
+git remote add heroku https://git.heroku.com/lesson09continuous-deployment.git
 """
 
 import os
