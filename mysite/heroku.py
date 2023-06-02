@@ -1,7 +1,7 @@
 """
 Assignment: lesson09_CI/CD
 Date: 6/1/23
-File name: heroku.py
+File name: mysite/heroku.py
 purpose:
 - deploy to heroku
 - supersede mysite/settings.py
@@ -12,8 +12,8 @@ Notes:
 
 
 black usage for heroku (from terminal):
-black heroku.py
-git add heroku.py
+black mysite/heroku.py
+git add mysite/heroku.py
 git add Procfile
 git commit -m "Getting ready for heroku."
 git push origin continuous-deployment
