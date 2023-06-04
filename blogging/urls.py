@@ -1,6 +1,6 @@
 """
-Assignment: 08 class-based view
-Date: 5/28/23
+Assignment: Lesson 09 Assignment
+Date: 6/4/23
 File name: blogging/urls.py
 
 Notes:
