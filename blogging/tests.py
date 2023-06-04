@@ -1,6 +1,6 @@
 """
-Assignment: 07 Activity
-Date: 5/20/23
+Assignment: Lesson09 Activity
+Date: 6/3/23
 File name: blogging/tests.py
 Test usage:
 > python manage.py test blogging
@@ -10,7 +10,7 @@ Date        Developer       Activities
 5/18/23     Don D.          Update tests.py
                             Need to add a fixture into blogging/fixtures
                             - Luis sent out this file
-
+6/3/23      Don D.           Lesson09 Activity - replace Recent Posts to Lesson09 Post
 """
 
 from blogging.models import Post, Category
@@ -67,7 +67,7 @@ class FrontEndTestCase(TestCase):
         resp = self.client.get("/")  # come as part of test case
         # the content of the rendered response is always a bytestring
         resp_text = resp.content.decode(resp.charset)
-        self.assertTrue("Recent Posts" in resp_text)
+        self.assertTrue("Lesson09 Posts" in resp_text)
         for count in range(1, 11):
             title = "Post %d Title" % count
             if count < 6:
