@@ -1,6 +1,6 @@
 """
-Assignment: Lesson 07 Assignment
-Date: 5/20/23
+Assignment: Lesson 09 Assignment
+Date: 6/3/23
 File name: mysite/urls.py
 Purpose:
 - file which holds top-level URL configuration for your project, more soon
@@ -30,8 +30,7 @@ https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=176
 
 
 Date        Developer       Activities
-5/15/23     Don D            Update the routing for polling/templates/polling/list.html & ./././detail.html
-                             path('polling/', include('polling.urls')),
+6/3/23      Don D.          Add  path('accounts/', include('allauth.urls'))
 
 
 """
@@ -61,4 +60,5 @@ urlpatterns = [
     # module
     path("login/", LoginView.as_view(template_name="login.html"), name="login"),
     path("logout/", LogoutView.as_view(next_page="/"), name="logout"),
+    path("accounts/", include("allauth.urls")),
 ]
