@@ -11,19 +11,25 @@ Before we move on, a quick word about Django templates.
 Django templates contain the static parts of the desired HTML output as well as some special syntax describing
 how dynamic content will be inserted. Django templates do not allow any python expressions.
 
+    Heroku dashboard - https://dashboard.heroku.com/apps
+    user: donjuanwu or doncd
+    pw: leyla2004
+    lesson09 git url: https://lesson09continuous-deployment.herokuapp.com/
+
 Reference:
 Django Templates
 - https://docs.djangoproject.com/en/2.1/topics/templates/
 
 Date        Developer       Activities
 5/28/23     Don D.          Update post 'for post in post_list' from for post in posts
-6/3/23      Don D.           Lesson09 Activity - replace Recent Posts to Lesson09 Posts
+6/3/23      Don D.          Lesson09 Activity - replace Recent Posts to Lesson09 Posts
+                            Update post to Primary Posts
 
 -->
 
 
 {% extends "base.html" %} {% block content %}
-    <h1>Lesson09 Posts</h1>
+    <h1>Primary Posts</h1>
     {% for post in post_list %}
         <div class="post">
         <h2>
