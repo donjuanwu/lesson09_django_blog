@@ -51,8 +51,12 @@ Date        Developer           Activities
                                 name: doncd
                                 pw: leyla2004
 6/3/23      Don D.              Add addon #1: Social Signin/Login withGub
-                                Client ID 40a9585681212df1a57a
-                                Client secrets 7ec520b12f836f7df17bf16445a28d67c66d0957
+                                Heroku:
+                                    Client ID: 40a9585681212df1a57a
+                                    Secrets 7ec520b12f836f7df17bf16445a28d67c66d0957
+6/4/23      Don D.              Local Test
+                                    Client ID: 660649bc1e2b093d12f3
+                                    Secrets: 05d26f04db10b8689c6bb2037d67184dec8b754c
 
 
 """

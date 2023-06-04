@@ -1,0 +1,21 @@
+<!--
+Assignment: Lesson 09 Assignment
+Date: 6/4/23
+File name: mysite/templates/home.html
+Purpose:
+- display home page
+
+Date        Developer       Activities
+6/4/23      Don D.          Load socialaccount from django-allauth at the top and then display a message to the user if logged in.
+                            Otherwise we'll provide a link to login with Github
+-->
+
+<!-- templates/home.html -->
+{% load socialaccount %}
+
+<h1>Django OAuth Users</h1>
+{% if user.is_authenticated %}
+<p>Welcome {{ user.username.title }} !!!</p>
+{% else %}
+<a href="{% provider_login_url 'github' %}">Sign Up</a>
+{% endif %}

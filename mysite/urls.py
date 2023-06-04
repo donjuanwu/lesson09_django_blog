@@ -31,12 +31,16 @@ https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=176
 
 Date        Developer       Activities
 6/3/23      Don D.          Add  path('accounts/', include('allauth.urls'))
+6/4/23                      Replace path("", include("blogging.urls")),  # blogging/urls
+                                to path("blogging/", include("blogging.urls")),
+                            Add path("", Home.as_view(), name="home")
 
 
 """
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import admin
 from django.urls import path, include
+from .views import Home
 
 """
 - https://canvas.uw.edu/courses/1616579/pages/lesson-07-content?module_item_id=17606304
@@ -52,7 +56,7 @@ urlpatterns = [
 
 """
 urlpatterns = [
-    path("", include("blogging.urls")),  # blogging/urls
+    path("blogging/", include("blogging.urls")),  # blogging/urls
     path("polling/", include("polling.urls")),  # polling/urls
     path(
         "admin/", admin.site.urls
@@ -61,4 +65,5 @@ urlpatterns = [
     path("login/", LoginView.as_view(template_name="login.html"), name="login"),
     path("logout/", LogoutView.as_view(next_page="/"), name="logout"),
     path("accounts/", include("allauth.urls")),
+    path("", Home.as_view(), name="home"),  # new
 ]

@@ -1,5 +1,5 @@
 """
-Assignment: lesson09_CI/CD
+Assignment: lesson09 assignment
 Date: 6/1/23
 File name: mysite/heroku.py
 purpose:
