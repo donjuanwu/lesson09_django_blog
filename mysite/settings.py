@@ -1,6 +1,6 @@
 """
-Assignment: Lesson 07 Assignment
-Date: 5/20/23
+Assignment: Lesson 00 Assignment
+Date: 6/3/23
 File name: settings.py
 Purpose:
 - file which holds configuration for your project, more soon
@@ -17,10 +17,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 
 Date        Developer       Activities
-5/15/23     Don D           Add location of base.html into TEMPLATES
-                            Add blogging app to INSTALLED_APPS
-5/20/23     Don D.          Add LOGIN_URL = '/login/'
-                            LOGIN_REDIRECT_URL ='/'
+6/3/23      Don D.          Add several lines of django-allauth configurations to INSTALLED_APPS
 """
 
 from pathlib import Path
@@ -42,7 +39,6 @@ DEBUG = True  # default = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 # add polling
@@ -57,6 +53,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "polling",
     "blogging",
+    "django.contrib.sites",  # new 6/3/23
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github"
 ]
 
 # add below entries to customized MIDDLEWARE
@@ -75,7 +76,6 @@ MIDDLEWARE = [
 # Hook the admin's URLs into yoru URLconf
 # -
 ROOT_URLCONF = "mysite.urls"
-
 
 # add base.html template here
 # add below entries in order NOT to use Django default project template
@@ -98,7 +98,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "mysite.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -108,7 +107,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -128,18 +126,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
 
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -150,3 +145,13 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# new 6/3/23
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+LOGIN_REDIRECT_URL = '/'

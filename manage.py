@@ -51,7 +51,8 @@ Date        Developer           Activities
                                 name: doncd
                                 pw: leyla2004
 6/3/23      Don D.              Add addon #1: Social Signin/Login withGub
-
+                                Client ID 40a9585681212df1a57a
+                                Client secrets 7ec520b12f836f7df17bf16445a28d67c66d0957
 
 
 """
