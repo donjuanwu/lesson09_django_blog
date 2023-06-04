@@ -39,6 +39,9 @@ black usage:
 run autoformatter on blogging mysite and polling
 > black --check blogging mysite polling
 
+Django allauth-tutorial:  https://learndjango.com/tutorials/django-allauth-tutorial
+
+
 
 
 Date        Developer           Activities
@@ -47,6 +50,10 @@ Date        Developer           Activities
                                 > python manage.py createsuperuser
                                 name: doncd
                                 pw: leyla2004
+6/3/23      Don D.              Add addon #1: Social Signin/Login withGub
+
+
+
 """
 
 
