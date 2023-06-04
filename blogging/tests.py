@@ -5,12 +5,18 @@ File name: blogging/tests.py
 Test usage:
 > python manage.py test blogging
 
+Notes:
+    Heroku dashboard - https://dashboard.heroku.com/apps
+    user: donjuanwu or doncd
+    pw: leyla2004
+    lesson09 git url: https://lesson09continuous-deployment.herokuapp.com/
 
 Date        Developer       Activities
 5/18/23     Don D.          Update tests.py
                             Need to add a fixture into blogging/fixtures
                             - Luis sent out this file
 6/3/23      Don D.           Lesson09 Activity - replace Recent Posts to Lesson09 Post
+                             Update post to Primary Posts
 """
 
 from blogging.models import Post, Category
@@ -67,7 +73,7 @@ class FrontEndTestCase(TestCase):
         resp = self.client.get("/")  # come as part of test case
         # the content of the rendered response is always a bytestring
         resp_text = resp.content.decode(resp.charset)
-        self.assertTrue("Lesson09 Posts" in resp_text)
+        self.assertTrue("Primary Posts" in resp_text)
         for count in range(1, 11):
             title = "Post %d Title" % count
             if count < 6:
