@@ -22,3 +22,7 @@
 - `python manage.py shell`
 10. Run a test
 - `python manage.py test blogging`
+11. black preliminary check
+- `black --check blogging mysite polling`
+12. black format 
+- `black blogging mysite polling`

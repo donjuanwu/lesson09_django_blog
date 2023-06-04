@@ -1,5 +1,5 @@
 """
-Assignment: Lesson 00 Assignment
+Assignment: Lesson 09 Assignment
 Date: 6/3/23
 File name: settings.py
 Purpose:
@@ -18,6 +18,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 Date        Developer       Activities
 6/3/23      Don D.          Add several lines of django-allauth configurations to INSTALLED_APPS
+6/4/23      Don D.          update the settings for TEMPLATES from "DIRS": [], to the following
+                            "DIRS": [os.path.join(BASE_DIR, "templates")],
 """
 
 from pathlib import Path
@@ -84,6 +86,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [os.path.join(BASE_DIR, "mysite/templates")],
+        # "DIRS": [os.path.join(BASE_DIR, "templates")],  # new
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
